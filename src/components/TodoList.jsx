@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
 import TodoItem from "./TodoItem.jsx";
 
-function TodoList({ todoList }) {
+function TodoList({ todoList, deleteTodo }) {
   return todoList.length ? (
     <ul>
       {todoList.map((todo) => (
-        <TodoItem key={todo.id} todo={todo} />
+        <TodoItem key={todo.id} todo={todo} deleteTodo={deleteTodo} />
       ))}
     </ul>
   ) : (
@@ -21,6 +21,9 @@ TodoList.propTypes = {
       content: PropTypes.string.isRequired,
     })
   ).isRequired,
+  deleteTodo: PropTypes.func.isRequired
 };
+
+
 
 export default TodoList;
